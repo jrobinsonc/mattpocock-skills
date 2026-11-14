@@ -74,14 +74,13 @@ In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.c
 </details>
 
 <details>
-<summary><strong>Gemini CLI</strong> (manual updates)</summary>
+<summary><strong>Antigravity</strong> (manual updates)</summary>
 
 ```bash
-gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering
-gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity
+agy plugin install https://github.com/mattpocock/skills
 ```
 
-Re-run both commands to update.
+Re-run to update.
 
 </details>
 
