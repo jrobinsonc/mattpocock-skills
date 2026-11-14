@@ -14,10 +14,10 @@ Claude Code installs from its official marketplace, `claude-plugins-official`. E
 | Codex         | `@mattpocock` marketplace        | Yes, at startup, by default                                      |
 | Copilot CLI   | `@mattpocock` marketplace        | Yes, after a one-time `autoUpdate: true`                         |
 | VS Code       | Chat: Install Plugin From Source | Yes, daily, by default                                           |
-| Gemini CLI    | `gemini skills install` (copies) | No. A Gemini extension would need a flat `skills/<name>/` layout |
+| Antigravity   | `agy plugin install` (copies)    | No. Re-run `agy plugin install` to update                        |
 | Everyone else | skills.sh                        | No. Run `npx skills update`, and re-run `add` for new skills     |
 
-Sources (2026-10-08): Codex `core-plugins/src/manager.rs`; Copilot [cli-config-dir-reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference); VS Code `pluginAutoUpdate.ts`; Gemini `skillLoader.ts`.
+Sources (2026-10-08): Codex `core-plugins/src/manager.rs`; Copilot [cli-config-dir-reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference); VS Code `pluginAutoUpdate.ts`; [Antigravity plugins](https://antigravity.google/docs/plugins/).
 
 Nobody has run Auggie, Droid, Qwen or Goose against this repo, so they stay on skills.sh until someone does.
 
@@ -71,18 +71,17 @@ In VS Code, run **Chat: Install Plugin From Source** and enter `https://github.c
 
 </canonical-block>
 
-## Gemini CLI
+## Antigravity
 
-Gemini doesn't read `.claude-plugin`, and `--path` takes one bucket. One install per promoted bucket gives exactly the promoted set (27 skills, verified 2026-10-07).
+Antigravity reads `.antigravity-plugin/plugin.json` and installs the promoted set in one command across the CLI, App, and IDE. Only `@antigravity-plugins-official` auto-updates; direct repo installs copy into `~/.gemini/config/plugins/mattpocock-skills`.
 
-<canonical-block name="gemini">
+<canonical-block name="antigravity">
 
 ```bash
-gemini skills install https://github.com/mattpocock/skills.git --path skills/engineering
-gemini skills install https://github.com/mattpocock/skills.git --path skills/productivity
+agy plugin install https://github.com/mattpocock/skills
 ```
 
-Re-run both commands to update.
+Re-run to update.
 
 </canonical-block>
 

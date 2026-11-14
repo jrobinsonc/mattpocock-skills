@@ -51,3 +51,9 @@ On Codex 0.161.0, the `@mattpocock` marketplace install loads the promoted model
 `@mattpocock` is now the lead route on Codex, Copilot and VS Code, at the cost of a one-time opt-in on Copilot. Claude Code stays on `claude-plugins-official`, as in the 2026-08-05 update, because it auto-updates by default and needs no `marketplace add`.
 
 The version invariant above now applies to every managed route. `npm run version` already keeps it by running `scripts/sync-plugin-version.mjs`. `marketplace.json` has no `version` field, so it can't drift.
+
+## Update, 2026-11-13: Antigravity plugin
+
+Gemini CLI was replaced by Antigravity CLI (`agy`) on 2026-06-18. Antigravity reads `.antigravity-plugin/plugin.json` in multi-provider repos and accepts `skills` as an array of skill directory paths relative to the plugin root ([Antigravity plugins docs](https://antigravity.google/docs/plugins/)).
+
+We ship `.antigravity-plugin/plugin.json` with the same promoted `skills` list as `.claude-plugin/plugin.json`, and `scripts/sync-plugin-version.mjs` keeps both manifests on `package.json`'s version. `agy plugin install https://github.com/mattpocock/skills` installs all 27 promoted skills across the Antigravity CLI, App, and IDE in one command, replacing the two `gemini skills install --path` commands.
